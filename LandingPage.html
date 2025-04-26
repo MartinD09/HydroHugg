@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HydroHugg</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="HydroHugg/icon.png" type="image/x-icon">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #d0eaff;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+      color: #444;
+    }
+
+    .slider-container {
+      position: relative;
+      width: 600px;
+      height: auto;
+      max-width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    .slider-container img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+    }
+
+    .slider-container img.active {
+      opacity: 1;
+      position: relative;
+    }
+
+
+    .cta-button {
+      background-color: #1ca7ec;
+      color: white;
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .cta-button:hover {
+      background-color: #1592cc;
+    }
+
+    .cta-button img {
+      width: 24px;
+      height: 24px;
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    /* Vylepšené CSS štýly pre kruhy - pridajte alebo upravte v style.css */
+    .features-container {
+      display: flex;
+      /* Zarovná kruhy vedľa seba */
+      justify-content: center;
+      /* Rozmiestni kruhy rovnomerne */
+      align-items: center;
+      /* Zarovná obsah kruhov na stred vertikálne */
+      flex-wrap: wrap;
+      /* Zalomenie na menších obrazovkách */
+      margin: 40px 0;
+      /* Väčšie odsadenie od okolitých prvkov */
+      padding: 0 10px;
+      /* Malé bočné odsadenie, aby sa nedotýkali okraja */
+      text-align: center;
+      width: 50%;
+    }
+
+    .feature-circle {
+      border: 1.5px solid #ddd;
+      /* Tenší a svetlejší sivý okraj */
+      border-radius: 50%;
+      /* Vytvorí kruhový tvar */
+      width: 170px;
+      /* Mierne menšia šírka kruhu */
+      height: 170px;
+      /* Mierne menšia výška kruhu */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      /* Upravené vnútorné odsadenie */
+      margin: 15px;
+      /* Odsadenie medzi kruhmi */
+      box-sizing: border-box;
+      font-size: 0.95em;
+      /* Prípadná úprava veľkosti písma */
+      color: #555;
+      /* Tmavšia sivá farba textu */
+      /* Pridanie jemného tieňa pre lepší vizuálny efekt (voliteľné) */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      /* Prechod pre prípadné hover efekty (voliteľné) */
+      transition: transform 0.2s ease-in-out;
+    }
+
+    /* Voliteľný hover efekt */
+    .feature-circle:hover {
+      transform: scale(1.05);
+      border-color: #bbb;
+    }
+
+
+    /* Úpravy pre texty a odkazy */
+.contact-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.contact-button {
+  background-color: #66b7e4;
+  color: white;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 10px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-button:hover {
+  background-color: #539ac2;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Pridanie nadpisu pre sekciu kontakt */
+.contact-heading {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+
+  </style>
+</head>
+
+<body>
+  <h1><img src="HydroHugg/icon.png" alt="HydroHugg logo" style="width: 50px; height: 50px; vertical-align: middle;">
+    HydroHugg</h1>
+
+  <p>
+    Tvoje telo si zaslúži hydratáciu! <br><br>
+    Rozšírenie pre Chrome, ktoré ti pripomenie piť vodu v správny čas.
+  </p>
+
+  <div class="slider-container">
+    <img src="Images/Dizajn12.png" class="active" alt="Mockup 1">
+    <img src="Images/Dizajn11.png" alt="Mockup 2">
+    <img src="Images/Dizajn13.png" alt="Mockup 3">
+    <img src="Images/Dizajn14.png" alt="Mockup 4">
+    <img src="Images/Dizajn15.png" alt="Mockup 5">
+    <img src="Images/Dizajn16.png" alt="Mockup 6">
+  </div>
+
+  <h2>Funkcionality :</h2>
+
+  <div class="features-container">
+    <div class="feature-circle">
+      <span class="emoji">🕰️<br><i>"Odpočet intervalu"</i>
+    </div>
+    <div class="feature-circle">
+      <span class="emoji">📜<br><i>"Upozornenie: Napi sa!"</i>
+    </div>
+    <div class="feature-circle">
+      <span class="emoji">📆<br><i>"Vlastný interval"</i>
+    </div>
+    <div class="feature-circle">
+      <span class="emoji">🟢🔴<br><i>"Vypnutie/Zapnutie"</i>
+    </div>
+    <div class="feature-circle">
+      <span class="emoji">🌞<br><i>"Počasie"</i>
+    </div>
+  </div>
+
+
+  <a class="cta-button" href="https://chromewebstore.google.com/detail/hydrohugg/nbjpalfmnkgijpgacooghokhglogpcec"
+    target="_blank">
+    <img src="Images/chrome.png" alt="Chrome Logo"> Stiahnuť v Chrome Web Store
+  </a>
+<br>
+<br>
+<!-- Kontaktujte nás sekcia -->
+<p class="contact-heading">Kludne nás môžete kontaktovať nižšie:</p>
+<a class="contact-button" href="dobiasmartin2002@gmail.com?subject=Spätná väzba na HydroHugg">Zanechať spätnú väzbu</a>
+
+<p class="contact-heading">Nájdete nás aj na:</p>
+<a class="contact-button" href="">Product Hunt</a>
+
+
+
+  <footer>
+    Projekt Vytvoril Martin Dobiaš <br>
+    &copy; 2025 HydroHugg. Pite viac vody, žite lepšie. <br>
+
+  </footer>
+
+
+  <script>
+    const images = document.querySelectorAll('.slider-container img');
+    let current = 0;
+
+    setInterval(() => {
+      images[current].classList.remove('active');
+      current = (current + 1) % images.length;
+      images[current].classList.add('active');
+    }, 4000);
+  </script>
+
+</body>
+
+</html>
