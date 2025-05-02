@@ -7,7 +7,9 @@
   <title>HydroHugg</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="icon" href="Images/icon.png" type="image/x-icon">
-  <style>
+
+<style>
+
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
@@ -20,12 +22,39 @@
       min-height: 100vh;
       text-align: center;
       padding: 2rem;
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
     }
 
     h1 {
       font-size: 3rem;
       margin-bottom: 0.5rem;
     }
+
+    h2 {
+      position: relative;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 4px;
+      background-color: #66b7e4;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -10px;
+      border-radius: 2px;
+    }
+
 
     p {
       font-size: 1.2rem;
@@ -58,9 +87,8 @@
       position: relative;
     }
 
-
     .cta-button {
-      background-color: #1ca7ec;
+      background-color: #66b7e4;
       color: white;
       padding: 0.75rem 2rem;
       border: none;
@@ -89,98 +117,85 @@
       color: #888;
     }
 
-    /* Vylepšené CSS štýly pre kruhy - pridajte alebo upravte v style.css */
     .features-container {
       display: flex;
-      /* Zarovná kruhy vedľa seba */
       justify-content: center;
-      /* Rozmiestni kruhy rovnomerne */
       align-items: center;
-      /* Zarovná obsah kruhov na stred vertikálne */
       flex-wrap: wrap;
-      /* Zalomenie na menších obrazovkách */
       margin: 40px 0;
-      /* Väčšie odsadenie od okolitých prvkov */
       padding: 0 10px;
-      /* Malé bočné odsadenie, aby sa nedotýkali okraja */
       text-align: center;
       width: 50%;
+
     }
 
     .feature-circle {
       border: 1.5px solid #ddd;
-      /* Tenší a svetlejší sivý okraj */
       border-radius: 50%;
-      /* Vytvorí kruhový tvar */
       width: 170px;
-      /* Mierne menšia šírka kruhu */
       height: 170px;
-      /* Mierne menšia výška kruhu */
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 20px;
-      /* Upravené vnútorné odsadenie */
       margin: 15px;
-      /* Odsadenie medzi kruhmi */
       box-sizing: border-box;
       font-size: 0.95em;
-      /* Prípadná úprava veľkosti písma */
       color: #555;
-      /* Tmavšia sivá farba textu */
-      /* Pridanie jemného tieňa pre lepší vizuálny efekt (voliteľné) */
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      /* Prechod pre prípadné hover efekty (voliteľné) */
       transition: transform 0.2s ease-in-out;
+      background-color: white;
     }
 
-    /* Voliteľný hover efekt */
     .feature-circle:hover {
       transform: scale(1.05);
       border-color: #bbb;
     }
 
+    .contact-text {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 1rem;
+    }
 
-    /* Úpravy pre texty a odkazy */
-.contact-text {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 1rem;
-}
+    .contact-button {
+      background-color: #66b7e4;
+      color: white;
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 10px 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
 
-.contact-button {
-  background-color: #66b7e4;
-  color: white;
-  padding: 0.75rem 2rem;
-  border: none;
-  border-radius: 12px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  margin: 10px 0;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+    .contact-button:hover {
+      background-color: #1592cc;
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    }
 
-.contact-button:hover {
-  background-color: #539ac2;
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
-}
+    .contact-heading {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 1rem;
+    }
 
-/* Pridanie nadpisu pre sekciu kontakt */
-.contact-heading {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #333;
-  margin-bottom: 1rem;
-}
-
-
+    .emoji {
+      font-size: 1.4rem;
+      display: inline-block;
+      text-align: center;
+      line-height: 1.2;
+    }
+    
   </style>
 </head>
 
@@ -202,11 +217,17 @@
     <img src="Images/Dizajn16.png" alt="Mockup 6">
   </div>
 
-  <h2>Features:</h2>
+  <a class="cta-button" href="https://chromewebstore.google.com/detail/hydrohugg/nbjpalfmnkgijpgacooghokhglogpcec"
+    target="_blank">
+    <img src="Images/chrome.png" alt="Chrome Logo"> Get it !
+  </a>
+
+  <h2><br><br>Features:</h2>
 
   <div class="features-container">
     <div class="feature-circle">
-      <span class="emoji">🕰️<br><i>"Interval Countdown"</i>
+      <span class="emoji">🕰️<br>
+        <i>"Interval Countdown"</i>
     </div>
     <div class="feature-circle">
       <span class="emoji">📜<br><i>"Reminder: Take a Sip!"</i>
@@ -215,12 +236,15 @@
       <span class="emoji">📆<br><i>"Custom Interval"</i>
     </div>
     <div class="feature-circle">
-      <span class="emoji">🟢🔴<br><i>"Enable/Disable"</i>
+      <span class="emoji">🟢🔴<br><i>"Enable or<br>
+          Disable"</i>
     </div>
     <div class="feature-circle">
       <span class="emoji">🌞<br><i>"Weather"</i>
     </div>
   </div>
+
+  <h2><br>Get it !<br></h2>
 
   <a class="cta-button" href="https://chromewebstore.google.com/detail/hydrohugg/nbjpalfmnkgijpgacooghokhglogpcec"
     target="_blank">
@@ -228,17 +252,23 @@
   </a>
 
   <br><br>
+  <h2><br>Contact us :<br></h2>
 
   <p class="contact-heading">Feel free to contact us below:</p>
   <a class="contact-button" href="mailto:dobiasmartin2002@gmail.com?subject=Feedback on HydroHugg">Leave Feedback</a>
-
+  <br>
+  <br>
   <p class="contact-heading">You can also find us on:</p>
-  <a href="https://www.producthunt.com/posts/chrome-web-store-4887cd76-9d2e-42d4-97de-1dba5ed990aa?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-chrome&#0045;web&#0045;store&#0045;4887cd76&#0045;9d2e&#0045;42d4&#0045;97de&#0045;1dba5ed990aa" target="_blank">
-    <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=957999&theme=light&t=1745669684480" alt="Chrome Web Store - HydroHugg | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" />
+  <a href="https://www.producthunt.com/posts/chrome-web-store-4887cd76-9d2e-42d4-97de-1dba5ed990aa?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-chrome&#0045;web&#0045;store&#0045;4887cd76&#0045;9d2e&#0045;42d4&#0045;97de&#0045;1dba5ed990aa"
+    target="_blank">
+    <img
+      src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=957999&theme=light&t=1745669684480"
+      alt="Chrome Web Store - HydroHugg | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" />
   </a>
-
+  <br>
+  <br>
   <p class="contact-heading">Have questions or suggestions? Contact me: dobiasmartin2002@gmail.com</p>
-
+  <h2></h2>
   <footer>
     Project created by Martin Dobiaš <br>
     &copy; 2025 HydroHugg. Drink more water, live better. <br>
